@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
 import React from 'react'
 import colorTypePokemons from '../utils/colorTypePokemons'
+
+const { height, width } = Dimensions.get("window")
 
 const ListPokemon = ({ item }) => {
   const { back_default, back_shiny, front_default, front_shiny, id, name, types, height, weight } = item
@@ -16,16 +18,18 @@ const ListPokemon = ({ item }) => {
       </View>
       <View style={styles.containerDescription}>
         <Text style={styles.textName}>{name.charAt(0).toUpperCase() + name.slice(1)} <Text style={styles.textId}>Nº {id}</Text></Text>
-        <Text style={styles.textDescription}>Altura: <Text style={styles.text}>{(height * 0.1).toFixed(1)}</Text> m</Text>
-        <Text style={styles.textDescription}>Peso: <Text style={styles.text}>{(weight * 0.1).toFixed(1)}</Text> Kg</Text>
-        <Text style={styles.textDescription}>Tipo:</Text>
-        <View style={styles.containerTypes}>
-          {types.map((item, index) =>
-            <Text
-              style={[styles.types, colorTypePokemons(item.type.name)]}
-              key={index}
-            >{item.type.name}</Text>
-          )}
+        <View style={{marginBottom: 10}}>
+          <Text style={styles.textDescription}>Altura: <Text style={styles.text}>{(height * 0.1).toFixed(1)}</Text> m</Text>
+          <Text style={styles.textDescription}>Peso: <Text style={styles.text}>{(weight * 0.1).toFixed(1)}</Text> Kg</Text>
+          <Text style={styles.textDescription}>Tipo:</Text>
+          <View style={styles.containerTypes}>
+            {types.map((item, index) =>
+              <Text
+                style={[styles.types, colorTypePokemons(item.type.name)]}
+                key={index}
+              >{item.type.name}</Text>
+            )}
+          </View>
         </View>
       </View>
 
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderRadius: 7,
-    backgroundColor: "#FFC9C9",
+    backgroundColor: "#ccc",
     margin: 5,
     flexDirection: 'row'
   },
@@ -52,13 +56,13 @@ const styles = StyleSheet.create({
   },
   containerDescription: {
     flex: 3,
-    gap: 5,
+    justifyContent: 'space-between',
+    paddingVertical: 10
   },
   textName: {
     fontFamily: "Amaranth_700Bold",
     color: "black",
-    textAlign: 'center',
-    fontSize: 32
+    fontSize: width < 370 ? 26 : 32,
   },
   textId: {
     fontSize: 16
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
   textDescription: {
     fontFamily: "Amaranth_700Bold",
     color: "black",
-    fontSize: 20
+    fontSize: width < 370 ? 18 : 20
   },
   text: {
     fontFamily: "Amaranth_400Regular",
@@ -81,9 +85,9 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     backgroundColor: "blue",
     color: "white",
-    paddingHorizontal: 25,
+    paddingHorizontal: width < 370 ? 20 : 25,
     paddingVertical: 2,
-    fontSize: 20,
+    fontSize: width < 370 ? 18 : 20,
     fontFamily: "Amaranth_400Regular",
   },
 })

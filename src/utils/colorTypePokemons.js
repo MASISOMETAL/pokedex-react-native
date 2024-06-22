@@ -62,7 +62,7 @@ export default colorType = (type) => {
       };
     case "steel":
       return {
-        backgroundColor: "#CFCDC8",
+        backgroundColor: "#aaaaaa",
         color: "black"
       };
     case "ice":
