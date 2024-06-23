@@ -27,8 +27,6 @@ Una app creada con React Native Expo, donde muestra una lista de todos los pokem
 
 ### Contiene
 
-#### Unordered list (-)
-
 - Lista de todos los pokemons por temporada
 - Seleccionador de temporadas por botones
 - Estilos dinamicos al momento de mostrar los tipos del pokemon
