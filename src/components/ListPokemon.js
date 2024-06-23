@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   img: {
     flex: 1,
-    height: 200
+    height: width < 370 ? 180 : 200,
   },
   containerDescription: {
     flex: 3,
@@ -70,13 +70,12 @@ const styles = StyleSheet.create({
   textDescription: {
     fontFamily: "Amaranth_700Bold",
     color: "black",
-    fontSize: width < 370 ? 18 : 20
+    fontSize: width < 370 ? 17 : 20
   },
   text: {
     fontFamily: "Amaranth_400Regular",
   },
   containerTypes: {
-    // justifyContent: 'center',
     flexDirection: 'row',
     gap: 10,
     marginVertical: 5
@@ -87,7 +86,7 @@ const styles = StyleSheet.create({
     color: "white",
     paddingHorizontal: width < 370 ? 20 : 25,
     paddingVertical: 2,
-    fontSize: width < 370 ? 18 : 20,
+    fontSize: width < 370 ? 17 : 20,
     fontFamily: "Amaranth_400Regular",
   },
 })
